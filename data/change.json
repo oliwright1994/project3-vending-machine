@@ -6,7 +6,7 @@
   },
   "2p": {
     "value": 2,
-    "quantity": 50,
+    "quantity": 40,
     "capacity": 50
   },
   "5p": {
@@ -32,12 +32,12 @@
   "£1": {
     "value": 100,
     "quantity": 5,
-    "capacity": 50
+    "capacity": 20
   },
   "£2": {
     "value": 200,
     "quantity": 3,
-    "capacity": 50
+    "capacity": 10
   },
-  "total": 2950
+  "total": 2930
 }

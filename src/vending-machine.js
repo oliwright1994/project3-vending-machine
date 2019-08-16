@@ -1,10 +1,14 @@
-let inventory = require("../data/inventory.json");
-let change = require("../data/change.json");
-
 class VendingMachine {
-  constructor(inventory) {
+  constructor(inventory, change) {
     this.inventory = inventory;
-    this.change = { total: 1000 };
+    this.change = change;
+  }
+
+  displayInventory() {
+    let inventory = Object.keys(this.inventory).filter(key => {
+      return this.inventory[key].quantity > 0;
+    });
+    return inventory.map(key => `${key}: ${this.inventory[key].name}`);
   }
 
   dispense(payment, selection) {
@@ -14,6 +18,7 @@ class VendingMachine {
       this.checkStock(item) &&
       this.calculateChange(payment, item.price)
     ) {
+      --item.quantity;
       return {
         item: item.name,
         change: payment - item.price
@@ -41,6 +46,43 @@ class VendingMachine {
       throw Error("Not enough change. Please use exact change");
     }
     return true;
+  }
+
+  refillStock(amount, selection) {
+    const item = this.inventory[selection];
+    if (!item || !amount) {
+      throw Error("Item could not be stocked");
+    }
+    const excess = amount - (item.capacity - item.quantity);
+    item.quantity = Math.min(item.capacity, item.quantity + amount);
+    if (excess > 0) {
+      return `Item stocked to ${item.quantity}, ${excess} left over `;
+    } else if (excess < 0) {
+      return `Item stocked to ${item.quantity}, space for ${-excess} left`;
+    } else if (excess === 0) {
+      return `Item fully stocked`;
+    }
+  }
+
+  refillCoins(amount, coinType) {
+    const coin = this.change[coinType];
+    if (!coin || !amount) {
+      throw Error("Coins could not be stocked");
+    }
+    const excess = amount - (coin.capacity - coin.quantity);
+    coin.quantity = Math.min(coin.capacity, coin.quantity + amount);
+    this.change.total += amount * coin.value;
+    if (excess < 0) {
+      return `${coinType} coins stocked to ${
+        coin.quantity
+      } with space for ${coin.capacity - coin.quantity} left`;
+    } else if (excess > 0) {
+      return `${coinType} coins stocked to ${
+        coin.quantity
+      }, ${excess} coins left over`;
+    } else if (excess === 0) {
+      return `${coinType} coins fully stocked`;
+    }
   }
 }
 
