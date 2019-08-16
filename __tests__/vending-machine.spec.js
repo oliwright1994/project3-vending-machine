@@ -2,6 +2,7 @@ const VendingMachine = require("../src/vending-machine");
 const inventory = require("../data/inventory.json");
 const change = require("../data/change.json");
 const vm = new VendingMachine(inventory, change);
+console.log(vm.dispense(100, "C3"));
 
 describe("Vending Machine", () => {
   describe("VendingMachine.displayInventory", () => {
@@ -130,6 +131,29 @@ describe("Vending Machine", () => {
       it("should return coins could not be stocked", () => {
         expect(() => vm.refillCoins("", "50p")).toThrow(
           "Coins could not be stocked"
+        );
+      });
+    });
+  });
+  describe("dispense item with change", () => {
+    describe("When i spend £1 on C3", () => {
+      it("it should return Quavers and 35p change", () => {
+        expect(vm.dispense(1, "C3")).toStrictEqual({
+          item: "Quavers",
+          change: {
+            "20p": 1,
+            "10p": 1,
+            "5p": 1
+          }
+        });
+      });
+    });
+  });
+  describe("change item", () => {
+    describe("When i replace A2 with 10 Tango", () => {
+      it("it should return removed 10 Coke from A2, replaced with 10 Tango", () => {
+        expect(vm.changeStock("A2", 10, "Tango")).toBe(
+          "Removed 10 Coke from A2, replaced with 10 Tango"
         );
       });
     });

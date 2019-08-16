@@ -1,43 +1,45 @@
 {
-  "1p": {
-    "value": 1,
-    "quantity": 50,
-    "capacity": 50
-  },
-  "2p": {
-    "value": 2,
-    "quantity": 40,
-    "capacity": 50
-  },
-  "5p": {
-    "value": 5,
-    "quantity": 20,
-    "capacity": 50
-  },
-  "10p": {
-    "value": 10,
-    "quantity": 20,
-    "capacity": 50
-  },
-  "20p": {
-    "value": 20,
-    "quantity": 20,
-    "capacity": 50
-  },
-  "50p": {
-    "value": 50,
-    "quantity": 20,
-    "capacity": 50
-  },
-  "£1": {
-    "value": 100,
-    "quantity": 5,
-    "capacity": 20
-  },
-  "£2": {
-    "value": 200,
-    "quantity": 3,
-    "capacity": 10
+  "coins": {
+    "1p": {
+      "value": 1,
+      "quantity": 50,
+      "capacity": 50
+    },
+    "2p": {
+      "value": 2,
+      "quantity": 40,
+      "capacity": 50
+    },
+    "5p": {
+      "value": 5,
+      "quantity": 20,
+      "capacity": 50
+    },
+    "10p": {
+      "value": 10,
+      "quantity": 20,
+      "capacity": 50
+    },
+    "20p": {
+      "value": 20,
+      "quantity": 20,
+      "capacity": 50
+    },
+    "50p": {
+      "value": 50,
+      "quantity": 20,
+      "capacity": 50
+    },
+    "£1": {
+      "value": 100,
+      "quantity": 5,
+      "capacity": 20
+    },
+    "£2": {
+      "value": 200,
+      "quantity": 3,
+      "capacity": 10
+    }
   },
   "total": 2930
 }

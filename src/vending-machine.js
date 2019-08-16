@@ -16,12 +16,12 @@ class VendingMachine {
     if (
       this.checkPayment(payment, item.price) &&
       this.checkStock(item) &&
-      this.calculateChange(payment, item.price)
+      this.checkChange(payment, item.price)
     ) {
       --item.quantity;
       return {
         item: item.name,
-        change: payment - item.price
+        change: this.calculateChange(payment, item.price)
       };
     }
   }
@@ -41,7 +41,7 @@ class VendingMachine {
     }
     return true;
   }
-  calculateChange(payment, price) {
+  checkChange(payment, price) {
     if (payment - price > this.change.total) {
       throw Error("Not enough change. Please use exact change");
     }
@@ -65,7 +65,7 @@ class VendingMachine {
   }
 
   refillCoins(amount, coinType) {
-    const coin = this.change[coinType];
+    const coin = this.change.coins[coinType];
     if (!coin || !amount) {
       throw Error("Coins could not be stocked");
     }
@@ -83,6 +83,34 @@ class VendingMachine {
     } else if (excess === 0) {
       return `${coinType} coins fully stocked`;
     }
+  }
+  calculateChange(payment, price) {
+    let changeRemaining = (payment - price) * 100;
+
+    let change = {};
+    let coins = Object.keys(this.change.coins).reverse();
+    coins.forEach(coin => {
+      if (changeRemaining > 0) {
+        let coinValue = this.change.coins[coin].value;
+        if (changeRemaining % coinValue === 0) {
+          change[coin] = changeRemaining / coinValue;
+          changeRemaining = 0;
+        } else if (changeRemaining > coinValue) {
+          let numCoins = Math.floor(changeRemaining / coinValue);
+          change[coin] = numCoins;
+          changeRemaining = changeRemaining % coinValue;
+        }
+      }
+    });
+    return change;
+  }
+
+  changeStock(selector, amount, item) {
+    let slot = this.inventory[selector];
+    const oldItem = `${slot.quantity} ${slot.name}`;
+    slot.quantity = amount;
+    slot.name = item;
+    return `Removed ${oldItem} from ${selector}, replaced with ${amount} ${item}`;
   }
 }
 
