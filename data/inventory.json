@@ -4,5 +4,53 @@
     "quantity": 10,
     "capacity": 15,
     "name": "Fanta"
+  },
+  "A2": {
+    "price": 1.5,
+    "quantity": 10,
+    "capacity": 15,
+    "name": "Coke"
+  },
+  "A3": {
+    "price": 1.5,
+    "quantity": 13,
+    "capacity": 15,
+    "name": "Sprite"
+  },
+  "B1": {
+    "price": 1.5,
+    "quantity": 7,
+    "capacity": 15,
+    "name": "Yorkie"
+  },
+  "B2": {
+    "price": 1.5,
+    "quantity": 5,
+    "capacity": 15,
+    "name": "Twix"
+  },
+  "B3": {
+    "price": 1.5,
+    "quantity": 0,
+    "capacity": 15,
+    "name": "Snickers"
+  },
+  "C1": {
+    "price": 1.5,
+    "quantity": 1,
+    "capacity": 15,
+    "name": "Pringles"
+  },
+  "C2": {
+    "price": 1.5,
+    "quantity": 7,
+    "capacity": 15,
+    "name": "Walkers - Salt and Vinegar"
+  },
+  "C3": {
+    "price": 1.5,
+    "quantity": 3,
+    "capacity": 15,
+    "name": "Quavers"
   }
 }
