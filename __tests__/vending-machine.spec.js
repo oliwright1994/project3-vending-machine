@@ -2,7 +2,6 @@ const VendingMachine = require("../src/vending-machine");
 const inventory = require("../data/inventory.json");
 const change = require("../data/change.json");
 const vm = new VendingMachine(inventory, change);
-console.log(vm.dispense(100, "C3"));
 
 describe("Vending Machine", () => {
   describe("VendingMachine.displayInventory", () => {
@@ -50,7 +49,7 @@ describe("Vending Machine", () => {
       });
       describe("when i put in £50 and c2 (change is greater than change in machine)", () => {
         it("should throw an error of not enough change", () => {
-          expect(() => vm.dispense(5000, "C2")).toThrow(
+          expect(() => vm.dispense(50, "C2")).toThrow(
             "Not enough change. Please use exact change"
           );
         });

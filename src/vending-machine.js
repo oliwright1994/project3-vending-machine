@@ -2,6 +2,9 @@ class VendingMachine {
   constructor(inventory, change) {
     this.inventory = inventory;
     this.change = change;
+    this.change.total = Object.keys(change.coins).reduce((a, x) => {
+      return a + this.change.coins[x].quantity * this.change.coins[x].value;
+    }, 0);
   }
 
   displayInventory() {
@@ -42,7 +45,7 @@ class VendingMachine {
     return true;
   }
   checkChange(payment, price) {
-    if (payment - price > this.change.total) {
+    if (payment - price > this.change.total / 100) {
       throw Error("Not enough change. Please use exact change");
     }
     return true;
@@ -101,6 +104,9 @@ class VendingMachine {
           changeRemaining = changeRemaining % coinValue;
         }
       }
+    });
+    Object.keys(change).forEach(key => {
+      this.change.coins[key].quantity -= change[key];
     });
     return change;
   }
