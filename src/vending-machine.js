@@ -69,6 +69,7 @@ class VendingMachine {
 
   refillCoins(amount, coinType) {
     const coin = this.change.coins[coinType];
+
     if (!coin || !amount) {
       throw Error("Coins could not be stocked");
     }

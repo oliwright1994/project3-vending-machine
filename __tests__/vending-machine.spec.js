@@ -112,9 +112,9 @@ describe("Vending Machine", () => {
         );
       });
     });
-    describe("When i try to refill 15 £1 coins", () => {
+    describe("When i try to refill 16 £1 coins", () => {
       it("should return the coins were fully stocked", () => {
-        expect(vm.refillCoins(15, "£1")).toEqual(
+        expect(vm.refillCoins(16, "£1")).toEqual(
           expect.stringMatching(`£1 coins fully stocked`)
         );
       });
@@ -134,6 +134,7 @@ describe("Vending Machine", () => {
       });
     });
   });
+  //dispense change test
   describe("dispense item with change", () => {
     describe("When i spend £1 on C3", () => {
       it("it should return Quavers and 35p change", () => {
@@ -148,6 +149,7 @@ describe("Vending Machine", () => {
       });
     });
   });
+  //Change item tests
   describe("change item", () => {
     describe("When i replace A2 with 10 Tango", () => {
       it("it should return removed 10 Coke from A2, replaced with 10 Tango", () => {
