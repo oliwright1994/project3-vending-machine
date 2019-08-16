@@ -2,41 +2,42 @@
   "1p": {
     "value": 1,
     "quantity": 50,
-    "capacity": 100
+    "capacity": 50
   },
   "2p": {
     "value": 2,
     "quantity": 50,
-    "capacity": 100
+    "capacity": 50
   },
   "5p": {
     "value": 5,
-    "quantity": 50,
-    "capacity": 100
+    "quantity": 20,
+    "capacity": 50
   },
   "10p": {
     "value": 10,
-    "quantity": 50,
-    "capacity": 100
+    "quantity": 20,
+    "capacity": 50
   },
   "20p": {
     "value": 20,
-    "quantity": 50,
-    "capacity": 100
+    "quantity": 20,
+    "capacity": 50
   },
   "50p": {
     "value": 50,
-    "quantity": 50,
-    "capacity": 100
+    "quantity": 20,
+    "capacity": 50
   },
   "£1": {
     "value": 100,
-    "quantity": 50,
-    "capacity": 100
+    "quantity": 5,
+    "capacity": 50
   },
   "£2": {
     "value": 200,
-    "quantity": 50,
-    "capacity": 100
-  }
+    "quantity": 3,
+    "capacity": 50
+  },
+  "total": 2950
 }
