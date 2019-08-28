@@ -4,19 +4,18 @@ const change = require("../data/change.json");
 const vm = new VendingMachine(inventory, change);
 
 describe("Vending Machine", () => {
+  //display inventory
   describe("VendingMachine.displayInventory", () => {
     describe("when i try to display inventory, it should return what items are in stock", () => {
-      it("should return an array of item names", () => {
-        expect(vm.displayInventory()).toEqual([
-          "A2: Coke",
-          "A3: Sprite",
-          "B1: Yorkie",
-          "B2: Twix",
-          "C1: Pringles",
-          "C2: Walkers - Salt and Vinegar",
-          "C3: Quavers"
-        ]);
-      });
+      expect(vm.displayInventory()).toEqual([
+        "A2: Coke",
+        "A3: Sprite",
+        "B1: Yorkie",
+        "B2: Twix",
+        "C1: Pringles",
+        "C2: Walkers - Salt and Vinegar",
+        "C3: Quavers"
+      ]);
     });
   });
   //dispense tests

@@ -18,6 +18,7 @@ To run the tests use:
 `jest __tests__/vending-machine.spec.js`
 
 Alternatively run:
+
 `jest-watch`
 
 Now jest will run everytime it detects a code change.
