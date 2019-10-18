@@ -1,6 +1,6 @@
 # Interview Practice - Vending Machine
 
-The aim of this project was to practice as example interview task, in this case it was to program the back end of a vending machine in node.js using TDD (test driven development).
+The aim of this project was to practice an example interview task, in this case programing the back end of a vending machine in node.js using TDD (test driven development).
 
 ## Technologies Used
 
@@ -26,3 +26,5 @@ Now jest will run everytime it detects a code change.
 ## Image of tests passed
 
 ![Photo proof](tests.png)
+
+Look at all that lovely green!
